@@ -5,10 +5,11 @@
 
 
 body {
+	display: block;
 	background-color : rgb(229,229,229);
 	margin : 0;
 	min-width: 1024px;
-	line-height: 10%;
+	line-height: 100%;
 
 }
 
