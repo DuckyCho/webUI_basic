@@ -1,0 +1,163 @@
+/*나눔고딕*/
+@import url('http://api.mobilis.co.kr/webfonts/v2/css/NanumGothicWeb');
+/*나눔명조*/
+@import url(http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+
+html, body {
+	margin : 0;
+	padding : 0;
+	background-color : rgb(229,229,229);
+	min-width: 1024px;}
+
+ul,ol,dl,li {list-style: none;}
+a {outline-style: none;}
+
+
+
+/*주간 베스트셀러*/
+h1{
+	font : bold small-caps  30px NanumGothicWeb;
+	letter-spacing : -3px;
+}
+
+/*도서, 내 책, 쇼핑하기*/
+h2{
+	font : 20px NanumGothicWeb;
+	letter-spacing:2px;
+}
+
+
+/*한 주 동안 가장 많은 사랑을 받은 도서*/
+h3{
+	font : 15px Nanum myeongjo,serif;
+	letter-spacing : 4px;
+}
+
+
+form{
+	margin : auto 0; }
+
+input[type="text"] {
+	width : 100%;
+	min-width : 335px;
+	margin : 0;
+	padding : 6px 0px 6px 0px;
+	font-size : 11pt;
+	text-indent: 10px;
+}
+
+input[type="image"]{
+	padding-top: 8px;
+	padding-left: 22px;
+	width :16px;
+}
+
+
+/*header*/
+header{
+	display: block;
+	padding: 10px 30px 10px 30px;
+	background-color: rgb(241,241,241);
+}
+
+#toplogo{
+	display: inline-block;
+	text-align: center;
+	margin-right : 30px;
+}
+
+#toplogo img{
+	width : 180px;
+}
+
+#topsearchbar{
+	display: inline-block;
+	width : 40%;
+	vertical-align: top;
+	padding-top: 2px;
+
+}
+
+#topsearchbar_button{
+	width: 60px;
+	height : 34px;
+	display: inline-block;
+	margin-top: 2px;
+	margin-left: -5px;
+	vertical-align: top;
+	background-color: rgb(70,131,236);
+}
+
+
+
+nav {
+	display: inline-block;
+	vertical-align:top;
+}
+
+
+aside {
+	display: inline-block;
+	width : 200px;
+	height : 240px;
+	background-color: rgb(243,243,243);
+	vertical-align: middle;
+}
+
+.aside{
+	display: inline-block;
+	width : 200px;
+	height : 240px;
+	background-color: rgb(243,243,243);
+	vertical-align: middle;
+}
+
+.aside.type{
+	height: 48px;
+	display: block;
+	text-align: center;
+}
+
+.aside.below{
+
+	position : relative;
+	width : 200px;
+	height : 192px;
+
+}
+
+.aside.back{
+	position : relative;
+	width: 25px;
+	height: 192px;
+
+}
+
+.aside.back > button{
+	border : 0;
+	padding:  0;
+	background-color: rgba(0,0,0,0.0);
+	margin-top: 84px;
+	display: inline;
+
+}
+
+.aside.menu{
+	position : absolute;
+	width : 175px;
+	height: 192px;
+	margin-top: 0px;
+}
+
+.aside.menu > ul{
+	margin : 0;
+	padding: 0;
+}
+
+
+.menuBar {
+	display : inline-block;
+}
+
+
+
