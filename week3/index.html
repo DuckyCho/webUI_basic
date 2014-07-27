@@ -23,16 +23,33 @@
 		<div id = "topsearchbar_button">
 			<input type="image" src="./source/search.png">
 		</div>
+
+		<div class = "user">
+			<div class= "user name ellipsis">+Youngdae Cho</div>
+			<div class = "user menu"><img src = "./source/index.png"></div>
+			<div class = "user notify"><img src="./source/bell.png"></div>
+			<div class = "user share_button"><button>공유</button></div>
+			<div class = "user pics"><img src ="./source/profile.jpg"></div>
+		</div>
 	</header>
 
 
 	
 	<aside>
-		<div class = "aside type">
+		<div class = "aside type selected_invert">
 			
-				<h2>
-					도서
-				</h2>
+
+				
+					<div class = "aside type icon">
+					<img src="./source/book.png" alt="book_icon">
+					</div>
+					<div class = "aside type name">
+					<h2>
+						도서
+					</h2>
+				</div>
+				
+
 			
 		</div>
 		<div class="aside below">
@@ -43,36 +60,44 @@
 		</span>
 		<span class="aside menu">
 			<ul>
-				<li>내 책</li>
-				<li>쇼핑하기</li>
+				<li><button>내 책</button></li>
+				<li><div class = "selected"><button>
+				쇼핑하기</button>
+				</div></li>
 			</ul>
 		</span>
 		</div>
 	</aside>
 
 	<nav>
-		<div class = "genre">
+		<div class = "nav genre">
 			<ul>
-				<li>장르</li>
+				<li><button>장르
+				<img src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAjUlEQVQoz2P4//8/A7mYYYhrzs3N5SsqKsoE0jLYFGZmZgoWFhZmAYEEhmagxsri4uL/QPwYaIAyssbs7GxhoPwFkDyQnoOhGWiqLlDyA7oBaBp/AdW5YfVzfn6+ObIBeXl5xsgagXQA3gBDM+AnLo04QxtqwHeoAX+xacQbVUC/RQA1vQQF5HBNYeRgAKO6bfkUgtZHAAAAAElFTkSuQmCC"></button></li>
 			</ul>
 		</div>
-		<div class = "nav_menu">
-			<ul>
-				<li>홈</li>
-				<li>인기 차트</li>
-				<li>신간</li>
-			</ul>
+		<div class = "nav divide_line">
 		</div>
-		<div class = "nav_buttons">
-			<div class = "help_button">
+		<div class = "nav nav_menu">
+			<ul>
+				<li><button>홈</button></li>
+				<li><button>인기 챠트</button></li>
+				<li><button>신간</button></li>
+			</ul>
+		
+			<div class = "nav nav_buttons">
+
+			<div class = "nav preference_button">
+				<button>
+				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAA3klEQVQ4y2NgGE4gEYj/I+FEahg6D83QuaQawATEqkDMCOVbA/FdNEPvALEVVJ4Rqp4Jn6HZUI3XgHgNEP9DMxCG/0Hlr0H52bgMFALiN3gMeYLHkjdQ/RigDovi30DcgaRBGIg7gfgPFrV12AzVhYYXssI2HL7qwBLOuriCgA+IPyF5WQCHOl4g/gFV9xGqDy/4BVX8jIC6B1B1PwkZSHWX0iRM6/HEPi+SC3HFfi2udPoWRzr8As1ZX/CkU0FcQZBDYo66DuVn0T3vYwNz0AydTY2iLxXN0NThU1UAAJ7AjlNiNxjgAAAAAElFTkSuQmCC">
+				</button>
+			</div>
+
+			<div class = "nav help_button">
 				<button>
 				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAAwUlEQVQ4y9WU6w3DIAyEGcEjZIQOwBAdgdEyikfoAAyRDVwTgZQQPyDKj/akkyIEn2zOIRBReNrh/6GsxEY2dS5raQrKWtgfAda77FlcKOvF3gaAzZsE7qGnCgGAEJGayndZ6ytWofUOTweOwCNYqDhp0EsoTTHG3U1SeBrUvD8HShdoTVwFDrQvQmEEqgQlQ732rbY9KE7M53BQSTuUc95tQNWRgptQc/jfN9q2f1PWOgn0H5Qa1Forhkefvp99+b/H6ZOyGDEoawAAAABJRU5ErkJggg==">
 				</button>
 			</div>
-			<div class = "preference_button">
-				<button>
-				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAA3klEQVQ4y2NgGE4gEYj/I+FEahg6D83QuaQawATEqkDMCOVbA/FdNEPvALEVVJ4Rqp4Jn6HZUI3XgHgNEP9DMxCG/0Hlr0H52bgMFALiN3gMeYLHkjdQ/RigDovi30DcgaRBGIg7gfgPFrV12AzVhYYXssI2HL7qwBLOuriCgA+IPyF5WQCHOl4g/gFV9xGqDy/4BVX8jIC6B1B1PwkZSHWX0iRM6/HEPi+SC3HFfi2udPoWRzr8As1ZX/CkU0FcQZBDYo66DuVn0T3vYwNz0AydTY2iLxXN0NThU1UAAJ7AjlNiNxjgAAAAAElFTkSuQmCC">
-				</button>
 			</div>
 		</div>
 	</nav>
@@ -81,91 +106,154 @@
 	<div class = "contents_wrapper">
 	<ul>
 	<li>
+
 	<section>
 
-		<div class = "title">
-			<div class ="description">
-				<dl>
-					<dt>주간 베스트셀러</dt>
-					<dd>한 주 동안 가장 많은 사랑을 받은 도서</dd>
-				</dl>
+		<div class = "section title">
+			<div class="section title description">
+					<h1>주간 베스트셀러</h1>
+					<h3>한 주 동안 가장 많은 사랑을 받은 도서</h3>
 			</div>
-			<div calss = "more_button">
+			<div class = "section title more_button">
 				<button>더보기</button>
 			</div>
-
 		</div>
 
 		<div class = "contents">
 			<ul>
 				<li>
-					<div class = "book_wrapper">
-						<div class="book_img">
+					<div class = "contents book_wrapper">
+						<div class="contents book_img">
+
+							<a href="./index.html">
 							<img src="https://encrypted.google.com/books/images/frontcover/VvCTIS-i28IC?fife=w300-rw">
+							</a>
+						
 						</div>
-						<div class="book_description">
-							<div calss = "title_author">
+						<div class="contents book_description">
+														<div class = "contents book_description title_author">
+								<div class = "shadow">
+								</div>
+
 								<dl>
+									
 									<dt>어서와 연애는 처음이지</dt>
 									<dd>장해정</dd>
+									
 								</dl>
 							</div>
-							<div class = "price">
-								\980
+							<div class = "contents book_description price">
+								₩980
 							</div>
 						</div>
 					</div>
 				</li>
 				<li>
-					<div class = "book_wrapper">
-						<div class="book_img">
+					<div class = "contents book_wrapper">
+						<div class="contents book_img">
+							<a href="./index.html">
 							<img src="https://encrypted.google.com/books/images/frontcover/VvCTIS-i28IC?fife=w300-rw">
+						</a>
 						</div>
-						<div class="book_description">
-							<div calss = "title_author">
+						<div class="contents book_description">
+														<div class = "contents book_description title_author">
+								<div class = "shadow">
+								</div>
 								<dl>
 									<dt>어서와 연애는 처음이지</dt>
 									<dd>장해정</dd>
 								</dl>
 							</div>
-							<div class = "price">
-								\980
+							<div class = "contents book_description price">
+								₩980
 							</div>
 						</div>
 					</div>
 				</li>
 				<li>
-					<div class = "book_wrapper">
-						<div class="book_img">
+					<div class = "contents book_wrapper">
+						<div class="contents book_img">
+							<a href="./index.html">
 							<img src="https://encrypted.google.com/books/images/frontcover/VvCTIS-i28IC?fife=w300-rw">
+						</a>
 						</div>
-						<div class="book_description">
-							<div calss = "title_author">
+						<div class="contents book_description">
+														<div class = "contents book_description title_author">
+								<div class = "shadow">
+								</div>
 								<dl>
 									<dt>어서와 연애는 처음이지</dt>
 									<dd>장해정</dd>
 								</dl>
 							</div>
-							<div class = "price">
-								\980
+							<div class = "contents book_description price">
+								₩980
 							</div>
 						</div>
 					</div>
 				</li>
 				<li>
-					<div class = "book_wrapper">
-						<div class="book_img">
+					<div class = "contents book_wrapper">
+						<div class="contents book_img">
+							<a href="./index.html">
 							<img src="https://encrypted.google.com/books/images/frontcover/VvCTIS-i28IC?fife=w300-rw">
+						</a>
 						</div>
-						<div class="book_description">
-							<div calss = "title_author">
+						<div class="contents book_description">
+														<div class = "contents book_description title_author">
+								<div class = "shadow">
+								</div>
 								<dl>
 									<dt>어서와 연애는 처음이지</dt>
 									<dd>장해정</dd>
 								</dl>
 							</div>
-							<div class = "price">
-								\980
+							<div class = "contents book_description price">
+								₩980
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class = "contents book_wrapper">
+						<div class="contents book_img">
+							<a href="./index.html">
+							<img src="https://encrypted.google.com/books/images/frontcover/VvCTIS-i28IC?fife=w300-rw">
+						</a>
+						</div>
+						<div class="contents book_description">
+														<div class = "contents book_description title_author">
+								<div class = "shadow">
+								</div>
+								<dl>
+									<dt>어서와 연애는 처음이지</dt>
+									<dd>장해정</dd>
+								</dl>
+							</div>
+							<div class = "contents book_description price">
+								₩980
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class = "contents book_wrapper">
+						<div class="contents book_img">
+							<a href="./index.html">
+							<img src="https://encrypted.google.com/books/images/frontcover/VvCTIS-i28IC?fife=w300-rw">
+						</a>
+						</div>
+						<div class="contents book_description">
+														<div class = "contents book_description title_author">
+								<div class = "shadow">
+								</div>
+								<dl>
+									<dt>어서와 연애는 처음이지</dt>
+									<dd>장해정</dd>
+								</dl>
+							</div>
+							<div class = "contents book_description price">
+								₩980
 							</div>
 						</div>
 					</div>
@@ -174,93 +262,150 @@
 		</div>
 	</section>
 	</li>
-
 	<li>
+
 	<section>
 
-		<div class = "title">
-			<div class ="description">
-				<dl>
-					<dt>주간 베스트셀러</dt>
-					<dd>한 주 동안 가장 많은 사랑을 받은 도서</dd>
-				</dl>
+		<div class = "section title">
+			<div class="section title description">
+					<h1>주간 베스트셀러</h1>
+					<h3>한 주 동안 가장 많은 사랑을 받은 도서</h3>
 			</div>
-			<div calss = "more_button">
+			<div class = "section title more_button">
 				<button>더보기</button>
 			</div>
-
 		</div>
 
 		<div class = "contents">
 			<ul>
 				<li>
-					<div class = "book_wrapper">
-						<div class="book_img">
+					<div class = "contents book_wrapper">
+						<div class="contents book_img">
+							<a href="./index.html">
 							<img src="https://encrypted.google.com/books/images/frontcover/VvCTIS-i28IC?fife=w300-rw">
+						</a>
 						</div>
-						<div class="book_description">
-							<div calss = "title_author">
+						<div class="contents book_description">
+														<div class = "contents book_description title_author">
+								<div class = "shadow">
+								</div>
 								<dl>
 									<dt>어서와 연애는 처음이지</dt>
 									<dd>장해정</dd>
 								</dl>
 							</div>
-							<div class = "price">
-								\980
+							<div class = "contents book_description price">
+								₩980
 							</div>
 						</div>
 					</div>
 				</li>
 				<li>
-					<div class = "book_wrapper">
-						<div class="book_img">
+					<div class = "contents book_wrapper">
+						<div class="contents book_img">
+							<a href="./index.html">
 							<img src="https://encrypted.google.com/books/images/frontcover/VvCTIS-i28IC?fife=w300-rw">
+						</a>
 						</div>
-						<div class="book_description">
-							<div calss = "title_author">
+						<div class="contents book_description">
+														<div class = "contents book_description title_author">
+								<div class = "shadow">
+								</div>
 								<dl>
 									<dt>어서와 연애는 처음이지</dt>
 									<dd>장해정</dd>
 								</dl>
 							</div>
-							<div class = "price">
-								\980
+							<div class = "contents book_description price">
+								₩980
 							</div>
 						</div>
 					</div>
 				</li>
 				<li>
-					<div class = "book_wrapper">
-						<div class="book_img">
+					<div class = "contents book_wrapper">
+						<div class="contents book_img">
+							<a href="./index.html">
 							<img src="https://encrypted.google.com/books/images/frontcover/VvCTIS-i28IC?fife=w300-rw">
+						</a>
 						</div>
-						<div class="book_description">
-							<div calss = "title_author">
+						<div class="contents book_description">
+														<div class = "contents book_description title_author">
+								<div class = "shadow">
+								</div>
 								<dl>
 									<dt>어서와 연애는 처음이지</dt>
 									<dd>장해정</dd>
 								</dl>
 							</div>
-							<div class = "price">
-								\980
+							<div class = "contents book_description price">
+								₩980
 							</div>
 						</div>
 					</div>
 				</li>
 				<li>
-					<div class = "book_wrapper">
-						<div class="book_img">
+					<div class = "contents book_wrapper">
+						<div class="contents book_img">
+							<a href="./index.html">
 							<img src="https://encrypted.google.com/books/images/frontcover/VvCTIS-i28IC?fife=w300-rw">
+						</a>
 						</div>
-						<div class="book_description">
-							<div calss = "title_author">
+						<div class="contents book_description">
+														<div class = "contents book_description title_author">
+								<div class = "shadow">
+								</div>
 								<dl>
 									<dt>어서와 연애는 처음이지</dt>
 									<dd>장해정</dd>
 								</dl>
 							</div>
-							<div class = "price">
-								\980
+							<div class = "contents book_description price">
+								₩980
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class = "contents book_wrapper">
+						<div class="contents book_img">
+							<a href="./index.html">
+							<img src="https://encrypted.google.com/books/images/frontcover/VvCTIS-i28IC?fife=w300-rw">
+						</a>
+						</div>
+						<div class="contents book_description">
+														<div class = "contents book_description title_author">
+								<div class = "shadow">
+								</div>
+								<dl>
+									<dt>어서와 연애는 처음이지</dt>
+									<dd>장해정</dd>
+								</dl>
+							</div>
+							<div class = "contents book_description price">
+								₩980
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class = "contents book_wrapper">
+						<div class="contents book_img">
+							<a href="./index.html">
+							<img src="https://encrypted.google.com/books/images/frontcover/VvCTIS-i28IC?fife=w300-rw">
+						</a>
+						</div>
+						<div class="contents book_description">
+														<div class = "contents book_description title_author">
+								<div class = "shadow">
+								</div>
+								<dl>
+									<dt>어서와 연애는 처음이지</dt>
+									<dd>장해정</dd>
+								</dl>
+							</div>
+							<div class = "contents book_description price">
+								₩980
 							</div>
 						</div>
 					</div>
@@ -269,93 +414,150 @@
 		</div>
 	</section>
 	</li>
-
 	<li>
+
 	<section>
 
-		<div class = "title">
-			<div class ="description">
-				<dl>
-					<dt>주간 베스트셀러</dt>
-					<dd>한 주 동안 가장 많은 사랑을 받은 도서</dd>
-				</dl>
+		<div class = "section title">
+			<div class="section title description">
+					<h1>주간 베스트셀러</h1>
+					<h3>한 주 동안 가장 많은 사랑을 받은 도서</h3>
 			</div>
-			<div calss = "more_button">
+			<div class = "section title more_button">
 				<button>더보기</button>
 			</div>
-
 		</div>
 
 		<div class = "contents">
 			<ul>
 				<li>
-					<div class = "book_wrapper">
-						<div class="book_img">
+					<div class = "contents book_wrapper">
+						<div class="contents book_img">
+							<a href="./index.html">
 							<img src="https://encrypted.google.com/books/images/frontcover/VvCTIS-i28IC?fife=w300-rw">
+						</a>
 						</div>
-						<div class="book_description">
-							<div calss = "title_author">
+						<div class="contents book_description">
+														<div class = "contents book_description title_author">
+								<div class = "shadow">
+								</div>
 								<dl>
 									<dt>어서와 연애는 처음이지</dt>
 									<dd>장해정</dd>
 								</dl>
 							</div>
-							<div class = "price">
-								\980
+							<div class = "contents book_description price">
+								₩980
 							</div>
 						</div>
 					</div>
 				</li>
 				<li>
-					<div class = "book_wrapper">
-						<div class="book_img">
+					<div class = "contents book_wrapper">
+						<div class="contents book_img">
+							<a href="./index.html">
 							<img src="https://encrypted.google.com/books/images/frontcover/VvCTIS-i28IC?fife=w300-rw">
+						</a>
 						</div>
-						<div class="book_description">
-							<div calss = "title_author">
+						<div class="contents book_description">
+														<div class = "contents book_description title_author">
+								<div class = "shadow">
+								</div>
 								<dl>
 									<dt>어서와 연애는 처음이지</dt>
 									<dd>장해정</dd>
 								</dl>
 							</div>
-							<div class = "price">
-								\980
+							<div class = "contents book_description price">
+								₩980
 							</div>
 						</div>
 					</div>
 				</li>
 				<li>
-					<div class = "book_wrapper">
-						<div class="book_img">
+					<div class = "contents book_wrapper">
+						<div class="contents book_img">
+							<a href="./index.html">
 							<img src="https://encrypted.google.com/books/images/frontcover/VvCTIS-i28IC?fife=w300-rw">
+						</a>
 						</div>
-						<div class="book_description">
-							<div calss = "title_author">
+						<div class="contents book_description">
+														<div class = "contents book_description title_author">
+								<div class = "shadow">
+								</div>
 								<dl>
 									<dt>어서와 연애는 처음이지</dt>
 									<dd>장해정</dd>
 								</dl>
 							</div>
-							<div class = "price">
-								\980
+							<div class = "contents book_description price">
+								₩980
 							</div>
 						</div>
 					</div>
 				</li>
 				<li>
-					<div class = "book_wrapper">
-						<div class="book_img">
+					<div class = "contents book_wrapper">
+						<div class="contents book_img">
+							<a href="./index.html">
 							<img src="https://encrypted.google.com/books/images/frontcover/VvCTIS-i28IC?fife=w300-rw">
+						</a>
 						</div>
-						<div class="book_description">
-							<div calss = "title_author">
+						<div class="contents book_description">
+														<div class = "contents book_description title_author">
+								<div class = "shadow">
+								</div>
 								<dl>
 									<dt>어서와 연애는 처음이지</dt>
 									<dd>장해정</dd>
 								</dl>
 							</div>
-							<div class = "price">
-								\980
+							<div class = "contents book_description price">
+								₩980
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class = "contents book_wrapper">
+						<div class="contents book_img">
+							<a href="./index.html">
+							<img src="https://encrypted.google.com/books/images/frontcover/VvCTIS-i28IC?fife=w300-rw">
+						</a>
+						</div>
+						<div class="contents book_description">
+														<div class = "contents book_description title_author">
+								<div class = "shadow">
+								</div>
+								<dl>
+									<dt>어서와 연애는 처음이지</dt>
+									<dd>장해정</dd>
+								</dl>
+							</div>
+							<div class = "contents book_description price">
+								₩980
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class = "contents book_wrapper">
+						<div class="contents book_img">
+							<a href="./index.html">
+							<img src="https://encrypted.google.com/books/images/frontcover/VvCTIS-i28IC?fife=w300-rw">
+						</a>
+						</div>
+						<div class="contents book_description">
+														<div class = "contents book_description title_author">
+								<div class = "shadow">
+								</div>
+								<dl>
+									<dt>어서와 연애는 처음이지</dt>
+									<dd>장해정</dd>
+								</dl>
+							</div>
+							<div class = "contents book_description price">
+								₩980
 							</div>
 						</div>
 					</div>
@@ -364,93 +566,150 @@
 		</div>
 	</section>
 	</li>
-
 	<li>
+
 	<section>
 
-		<div class = "title">
-			<div class ="description">
-				<dl>
-					<dt>주간 베스트셀러</dt>
-					<dd>한 주 동안 가장 많은 사랑을 받은 도서</dd>
-				</dl>
+		<div class = "section title">
+			<div class="section title description">
+					<h1>주간 베스트셀러</h1>
+					<h3>한 주 동안 가장 많은 사랑을 받은 도서</h3>
 			</div>
-			<div calss = "more_button">
+			<div class = "section title more_button">
 				<button>더보기</button>
 			</div>
-
 		</div>
 
 		<div class = "contents">
 			<ul>
 				<li>
-					<div class = "book_wrapper">
-						<div class="book_img">
+					<div class = "contents book_wrapper">
+						<div class="contents book_img">
+							<a href="./index.html">
 							<img src="https://encrypted.google.com/books/images/frontcover/VvCTIS-i28IC?fife=w300-rw">
+						</a>
 						</div>
-						<div class="book_description">
-							<div calss = "title_author">
+						<div class="contents book_description">
+														<div class = "contents book_description title_author">
+								<div class = "shadow">
+								</div>
 								<dl>
 									<dt>어서와 연애는 처음이지</dt>
 									<dd>장해정</dd>
 								</dl>
 							</div>
-							<div class = "price">
-								\980
+							<div class = "contents book_description price">
+								₩980
 							</div>
 						</div>
 					</div>
 				</li>
 				<li>
-					<div class = "book_wrapper">
-						<div class="book_img">
+					<div class = "contents book_wrapper">
+						<div class="contents book_img">
+							<a href="./index.html">
 							<img src="https://encrypted.google.com/books/images/frontcover/VvCTIS-i28IC?fife=w300-rw">
+						</a>
 						</div>
-						<div class="book_description">
-							<div calss = "title_author">
+						<div class="contents book_description">
+														<div class = "contents book_description title_author">
+								<div class = "shadow">
+								</div>
 								<dl>
 									<dt>어서와 연애는 처음이지</dt>
 									<dd>장해정</dd>
 								</dl>
 							</div>
-							<div class = "price">
-								\980
+							<div class = "contents book_description price">
+								₩980
 							</div>
 						</div>
 					</div>
 				</li>
 				<li>
-					<div class = "book_wrapper">
-						<div class="book_img">
+					<div class = "contents book_wrapper">
+						<div class="contents book_img">
+							<a href="./index.html">
 							<img src="https://encrypted.google.com/books/images/frontcover/VvCTIS-i28IC?fife=w300-rw">
+						</a>
 						</div>
-						<div class="book_description">
-							<div calss = "title_author">
+						<div class="contents book_description">
+														<div class = "contents book_description title_author">
+								<div class = "shadow">
+								</div>
 								<dl>
 									<dt>어서와 연애는 처음이지</dt>
 									<dd>장해정</dd>
 								</dl>
 							</div>
-							<div class = "price">
-								\980
+							<div class = "contents book_description price">
+								₩980
 							</div>
 						</div>
 					</div>
 				</li>
 				<li>
-					<div class = "book_wrapper">
-						<div class="book_img">
+					<div class = "contents book_wrapper">
+						<div class="contents book_img">
+							<a href="./index.html">
 							<img src="https://encrypted.google.com/books/images/frontcover/VvCTIS-i28IC?fife=w300-rw">
+						</a>
 						</div>
-						<div class="book_description">
-							<div calss = "title_author">
+						<div class="contents book_description">
+														<div class = "contents book_description title_author">
+								<div class = "shadow">
+								</div>
 								<dl>
 									<dt>어서와 연애는 처음이지</dt>
 									<dd>장해정</dd>
 								</dl>
 							</div>
-							<div class = "price">
-								\980
+							<div class = "contents book_description price">
+								₩980
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class = "contents book_wrapper">
+						<div class="contents book_img">
+							<a href="./index.html">
+							<img src="https://encrypted.google.com/books/images/frontcover/VvCTIS-i28IC?fife=w300-rw">
+						</a>
+						</div>
+						<div class="contents book_description">
+														<div class = "contents book_description title_author">
+								<div class = "shadow">
+								</div>
+								<dl>
+									<dt>어서와 연애는 처음이지</dt>
+									<dd>장해정</dd>
+								</dl>
+							</div>
+							<div class = "contents book_description price">
+								₩980
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class = "contents book_wrapper">
+						<div class="contents book_img">
+							<a href="./index.html">
+							<img src="https://encrypted.google.com/books/images/frontcover/VvCTIS-i28IC?fife=w300-rw">
+						</a>
+						</div>
+						<div class="contents book_description">
+														<div class = "contents book_description title_author">
+								<div class = "shadow">
+								</div>
+								<dl>
+									<dt>어서와 연애는 처음이지</dt>
+									<dd>장해정</dd>
+								</dl>
+							</div>
+							<div class = "contents book_description price">
+								₩980
 							</div>
 						</div>
 					</div>
@@ -459,13 +718,15 @@
 		</div>
 	</section>
 	</li>
+
+
 	</ul>
 	</div>
 
 	<footer>
 	<div class = "footer1">
-		<span class = "copyright">©2014 Google</span>
-		<span class = "terms">
+		<span class = "footer1 copyright">©2014 Google</span>
+		<span class = "footer1 terms">
 			<ul>
 				<li>사이트 서비스 약관</li>
 				<li>기기 판매약관</li>
@@ -475,8 +736,7 @@
 		</span>
 	</div>
 	<div class="footer2">
-		<span class="information">
-			<ul>
+		<span class="footer2 information">
 				<dl>
 					<dt>상호명:</dt>
 					<dd>google Inc.</dd>
@@ -493,11 +753,11 @@
 					<dt>도움말</dt>
 				
 					<dt>이메일:</dt>
-					<dd>gpk-usersupport@google.com</dd>
+					<dd><a href="mailto:gpk-usersupport@google.com">gpk-usersupport@google.com</a></dd>
 				</dl>
-			</ul>
+			
 		</span>
-		<span class ="warning">
+		<span class ="footer2 warning">
 			구글 플레이에 등록된 앱과 게임은 개발자들이 제공하고 판매하는 것이며, 구글은 개발자가 아닌 이상 등록한 상품 정보 및 거래에 대한 어떠한 책임도 지지 않습니다.
 		</span>
 	</div>
