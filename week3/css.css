@@ -107,7 +107,6 @@ input[type="image"]{
 	height : 34px;
 	display: inline-block;
 	margin-top: 2px;
-	margin-left: -5px;
 	vertical-align: top;
 	background-color: rgb(70,131,236);
 }
@@ -564,10 +563,10 @@ section {
 	position: absolute;
 	padding-top: 5px;
 	z-index: 2;
-	left : 130px;
-	width: 20px;
+	right : 0px;
+	width: 40%;
 	height:20px;
-	box-shadow: inset -10px 0 30px rgba(255,255,255,1);
+	background-image: -webkit-linear-gradient(left,rgba(255,255,255,0),rgba(255,255,255,1));
 }
 
 .contents.book_description.price{
