@@ -9,7 +9,7 @@ html, body {
 	margin : 0;
 	padding : 0;
 	background-color : rgb(229,229,229);
-	min-width: 1183px;}
+	min-width: 1180px;}
 
 ul,ol,dl,li {
 	-webkit-margin-before : 0;
@@ -76,7 +76,7 @@ header{
 
 #topsearchbar{
 	display: inline-block;
-	width : 40%;
+	width : 44%;
 	vertical-align: top;
 	padding-top: 2px;
 
@@ -426,6 +426,7 @@ section {
 	overflow: hidden;
 	padding: 20px 0 20px 0;
 	width : 100%;	
+	position: relative;
 }
 
 .section.title{
@@ -436,11 +437,12 @@ section {
 .section.title.description{
 	float : left;
 }
-.section.title.more_button{
-	float: right;
-	margin-right: 70px;
 
+.section.title.more_button{
+	position: absolute;
+	left : 769px;
 }
+
 .section.title.more_button > button{
 	
 	border-radius: 2px;
@@ -449,6 +451,13 @@ section {
 	padding: 8px 1em 8px 1em;	
 	color: rgb(255, 255, 255);
 	font-size: 15px;
+
+}
+
+.section.title.more_button > button:hover{
+	transition : all, 0.25s ease;
+	background-color: rgb(27,181,255);
+	border-bottom: solid 2px rgba(0,0,0,0.2);
 
 }
 
@@ -640,3 +649,34 @@ footer{
 }
 
 
+/*responsive*/
+
+
+@media (max-width: 1288px){
+
+.section.title.more_button{
+	position: absolute;
+	left : 769px;
+}
+
+
+}
+
+@media (min-width: 1289px){
+
+
+.section.title.more_button{
+	position: absolute;
+	left : 938px;
+	}
+}
+
+
+@media (min-width: 1459px){
+
+
+.section.title.more_button{
+	position: absolute;
+	left : 1109px;
+	}
+}
