@@ -1,0 +1,466 @@
+
+
+/************css reset*****************/
+
+html, body { margin:0; padding:0;
+font-family: "Helvetica";}
+
+:focus{
+	outline: none;
+}
+
+dl, dd{
+	display: block;
+	-webkit-margin-before: 0em;
+	-webkit-margin-after: 0em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+}
+h1, h2, h3, h4, h5, h6, p, blockquote, address, big, cite, code, em, font, img, small, strike, sub, sup, li, ol, ul, fieldset, form, label, legend, button, table, caption, tr, th, td {
+
+	padding:0;
+	border:0;
+	font-weight:normal;
+	font-style:normal;
+	font-size:100%;
+	line-height:1;
+	font-family:inherit;
+	text-align:left;
+}
+
+
+ol, ul { 
+	list-style:none;
+	display: inherit;
+	list-style-type: none;
+	-webkit-margin-before: 0em;
+	-webkit-margin-after: 0em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	-webkit-padding-start: 0px;
+ }
+
+a { outline:none; }
+
+input[type=image] {
+	width : 60%;
+}
+
+
+/************body*****************/
+
+body{
+	max-width: 800px;
+	background-color: rgb(229,229,229);
+	position: relative;
+	text-align: center;
+}
+
+
+/**********img vertical align**************/
+.img-wrapper{
+	display: table;
+	height : 100%;
+	width: 100%;
+}
+
+.imgVertical{
+	display: table-cell;
+	height: 100%;
+	vertical-align: middle;
+
+}
+
+/***top = header+nav************/
+
+.top{
+	position: relative;
+	height : 140px;
+	width : 100%;
+}
+
+/**********header**************/
+
+
+header{
+	position: relative;
+	display: block;
+	width : 100%;
+	height: 28.25%;
+	background-color: #FFFFFF;
+	text-align: center;
+	border-bottom: solid 2px rgb(220,220,220);
+}
+
+header button{
+	display: inline-block;
+	position: absolute;
+	width : 13.43%;
+	background-color: rgba(255,255,255,0);
+	height: 100%;
+	text-align: center;
+}
+
+.menuButton {
+	left: 0;
+}
+
+.searchButton{
+	right:0;
+	top : 0;
+}
+
+.headerLogo{
+	display: inline-block;
+	width: 40%;
+	padding-top: 6px;
+}
+
+
+/*****************nav*****************/
+
+nav{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 71.75%;
+	text-align: center;
+	padding: 0 1.5% 0 1.5%;
+}
+
+nav ul{
+	position: relative;
+	padding-top: 2%;
+	width: 97%;
+	height: 100%;
+	text-align: justify;
+}
+
+nav li{
+	width : 48%;
+	height: 25%;
+	display: inline-block;
+	background-color: #FFFFFF;
+	border : solid 1px rgb(220,220,220);
+	font-weight: bolder;
+	color : rgb(180,180,180);
+	margin-top: 4%;
+}
+
+nav button{
+	font-size: 80%;
+	text-align: center;
+	background-color: rgba(255,255,255,0);
+	color : rgb(109,109,109);
+	width: 100%;
+	height: 100%;
+	font-family: "Helvetica";
+}
+
+/*********************section*********************/
+
+section{
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 400px;
+	margin-top: 0;
+	margin-bottom: 2em;
+	text-align: center;
+}
+
+.title_wrapper{
+	display: inline-block;
+	position: relative;
+	width: 97%;
+	height: 17.13%;
+	text-align: left;
+	color : rgb(109,109,109);
+	font-family: "Helvetica-Thin";
+
+}
+
+
+.textWrapper{
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	width: 84%;
+}
+
+.title{
+	display: block;
+	font-size: 1.5em;
+	color: rgb(0,0,0);
+}
+.description{
+	display: block;
+	font-size: 80%;
+	bottom: 0;
+}
+
+.buttonWrapper{
+	display: inline-block;
+	height: 100%;
+}
+
+.moreButton{
+	position: absolute;
+	width: 18%;
+	height: 40%;
+	bottom: 0;
+	right: 0;
+	background-color: rgb(26,161,225);
+	color: #FFFFFF;
+	font-size: 80%;
+	text-align: center;
+}
+
+
+.lineUp_wrapper{
+	display: inline-block;
+	position: relative;
+	width: 97%;
+	height: 82.87%;
+	margin-top: 1em;
+}
+
+.lineUp_wrapper ul{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.lineUp_wrapper li:nth-child(odd){
+	float: left;
+	width: 48%;
+	height: 100%;
+	margin-right: 4%;
+	box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
+	border-radius: 0.2em;
+}
+
+.lineUp_wrapper li:nth-child(even){
+	float: left;
+	width: 48%;
+	height: 100%;
+	box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
+	border-radius: 0.2em;
+}
+
+.book_wrapper{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	background-color: #FFFFFF;
+	border-radius: 0.2em;
+}
+
+
+
+.book_cover_wrapper{
+	height: 74%;
+	width: 100%;
+	display: block;
+	position: relative;
+	background-color: rgb(233,233,233);
+}
+
+.book_cover_wrapper img{
+	width: 100%;
+}
+
+
+.book_cover_wrapper .imgVertical{
+	background-color: rgb(233,233,233);
+}
+
+
+
+.bookCover{
+	display: block;
+	height: 100%;
+}
+
+.bookDescription_wrapper{
+	display: block;
+	position: relative;
+	height: 26%;
+	width: 95%;
+	overflow: hidden;
+}
+
+.book_wrapper dt{
+	text-overflow : ellipsis;
+	white-space : nowrap;
+	position: absolute;
+	
+	top : 0.5em;
+	left: 0.5em;
+	color: rgb(100,100,100);
+	font-size: 1.0em;
+}
+
+.book_wrapper dd{
+	position: absolute;
+	top : 1.9em;
+	left : 0.5em;
+	font-size: 0.9em;
+	color : rgb(200,200,200);
+}
+
+
+.shadow{
+	position: absolute;
+	padding-top: 5px;
+	z-index: 2;
+	right : 0px;
+	width: 20%;
+	height:20px;
+	background-image: -webkit-linear-gradient(left,rgba(255,255,255,0),rgba(255,255,255,1));
+}
+
+.price{
+	position: absolute;
+	font-size: 0.9em;
+	right: 0.1em;
+	bottom: 0.5em;
+	color: rgb(51,165,225);
+}
+
+
+
+/*footer*/
+
+footer{
+	margin-top: 6em;
+	width: 100%;
+	position: relative;
+	display: block;
+	text-align: center;
+	font-size: 0.8em;
+	margin-bottom: 3em;
+}
+
+.footer1{
+	display: inline-block;
+	width: 97%;
+	text-align: left;
+}
+
+.copyright{
+	display: inline;
+	text-align: left;
+	color : rgb(100,100,100);
+}
+.terms{
+	display: inline;
+	text-align: justify;
+}
+
+.terms li{
+	display: inline;
+	color: rgb(180,180,180);
+}
+
+
+.footer2{
+	display: inline-block;
+	width: 97%;
+	text-align: left;
+	margin-top: 1em;
+}
+
+.footer2 dl{
+	display: inline-block;
+}
+
+.footer2 dt{
+	display: inline;
+}
+.footer2 dd{
+	display:inline;
+}
+
+/*responsive*/
+
+@media (min-width: 400px){
+	section{
+		height: 480px;
+	}
+
+
+}
+
+@media (min-width: 450px){
+	header{
+		height: auto;
+	}
+	section{
+		height: 550px;
+	}
+	.shadow{
+		top : 0.3em;
+	}
+
+
+}
+
+@media (min-width: 530px){
+	header{
+		height: auto;
+	}
+	section{
+		height: 650px;
+	}
+	
+	.shadow{
+		top : 0.3em;
+	}
+
+
+}
+
+@media (min-width: 600px){
+	header{
+		height: auto;
+	}
+	nav ul{
+		margin-top : 0;
+	}
+
+	nav li{
+		margin-top : 2%;
+	}
+	section{
+		margin-top: 1em;
+		height: 550px;
+	}
+	.book_wrapper dt{
+		font-size: 1.5em;
+	}
+
+	.book_wrapper dd{
+		top : 2.5em;
+		left : 0.7em;
+		font-size: 1em;
+	}
+	.shadow{
+		height: 40%;
+		top : 0.5em;
+	}
+	.price{
+		font-size: 1em;
+	}
+	.lineUp_wrapper li:nth-child(odd){
+		width : 30%;
+		margin-right: 0;
+	}
+	.lineUp_wrapper li:nth-child(even){
+		width : 30%;
+		margin-right: 5%;
+		margin-left: 5%;
+	}
+
+}
+
