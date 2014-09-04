@@ -65,7 +65,7 @@
 	<nav>
 		<div class = "nav genre">
 			<ul>
-				<li><button>장르
+				<li><button id = "genre_button">장르
 				<img src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAjUlEQVQoz2P4//8/A7mYYYhrzs3N5SsqKsoE0jLYFGZmZgoWFhZmAYEEhmagxsri4uL/QPwYaIAyssbs7GxhoPwFkDyQnoOhGWiqLlDyA7oBaBp/AdW5YfVzfn6+ObIBeXl5xsgagXQA3gBDM+AnLo04QxtqwHeoAX+xacQbVUC/RQA1vQQF5HBNYeRgAKO6bfkUgtZHAAAAAElFTkSuQmCC"></button></li>
 			</ul>
 		</div>
@@ -957,3 +957,12 @@
 	</footer>
 </body>
 
+<script>
+var allEle = document.getElementsByTagName("*");
+var count = 0;
+for ( var i = 0 ; i < allEle.length ; i++){
+	if(allEle[i].classList.length == 0)
+		count++;
+}
+
+</script>

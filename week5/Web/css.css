@@ -332,6 +332,7 @@ nav {
 	color : rgb(164,164,164);
 	background-color: rgba(0,0,0,0);
 	border: none;
+	outline: none;
 	font : 15px bold NanumGothicWeb;
 	text-align: center;
 	letter-spacing:0px;
