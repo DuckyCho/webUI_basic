@@ -1,14 +1,12 @@
-
-
+innerHtmlSet();
 var genreBookSet = document.querySelector("#genre_set");
-
 genreBookSet.addEventListener('click',bookListAppear,false);
 
 
 function bookListAppear(ev){
 	genreButtonPropertySet(ev);
 	innerHtmlSet(ev);
-	
+	moreButtonEventRegister();
 }
 
 
@@ -31,67 +29,65 @@ function innerHtmlSet(ev){
 
 
 function htmlScriptSet(ev){
-
-	var wrapper = "<ul>";
-	var booklist_selector = Math.floor(Math.random()*10000%4)
-	var bookList;
 	var bookListCounter = 0;
-	var section_title = [{h1:"새로나온 도서",h3:""},{h1:"베스트셀러",h3:""}]
 	var sectionInProgress ="";
 	
-	if(booklist_selector === 0){
-		bookList = aBookList;
-	}
-	else if(booklist_selector === 1){
-		bookList = bBookList;
-	}
-	else if(booklist_selector === 2){
-		bookList = cBookList;
+	if(ev){
+		var booklist_selector = getLiNumber(ev);
+		var Ssection_title = section_title;
 	}
 	else{
-		bookList = dBookList;
+		booklist_selector = 0;
+		var Ssection_title = section_title_main;
 	}
 
+	var bookList = wholeBookListSet[booklist_selector].listName;
 	
-	for( var i = 0 ; i < 2  ;  i++){
+	
+	var wrapper = "<ul>";
+	for( var i = 0 ; i < Ssection_title.length ;  i++){
+		var sectionTemplate = "<li><section><div class = \"section title\"><div class=\"section title description\"><h1> <%=section_title_h1%> </h1><h3> <%=section_title_h3%> </h3></div><div class = \"section title more_button\"><button>더보기</button></div></div><div class = \"contents\"><ul> ";
 		
-		var section ="<li><section><div class = \"section title\"><div class=\"section title description\"><h1>"
-		section +=section_title[i].h1;
-		section +="</h1><h3>"
-		section +=section_title[i].h3;
-		section +="</h3></div><div class = \"section title more_button\"><button>더보기</button></div></div><div class = \"contents\"><ul> "
+		sectionTemplate = sectionTemplate.replace("<%=section_title_h1%>",Ssection_title[i].h1);
+		sectionTemplate = sectionTemplate.replace("<%=section_title_h3%>",Ssection_title[i].h3);
 
-			for(var j = 0 ; j < 10 ; j++){
-				
-				section +="<li>	<div class = \"contents book_wrapper\">	<div class=\"contents book_img\"><a href=\""
-				//src
-				section += bookList[bookListCounter].src;
-				section += "\">	<div class=\"outer\"><div class=\"inner\"><img src=\"";
-				//imgsrc address
-				section += bookList[bookListCounter].imgsrc;
-				section +="\">	</div></div></a>	</div>	<div class=\"contents book_description\"><div class = \"contents book_description title_author\"><div class = \"shadow\"></div>	<dl><dt>";
-				//name
-				section += bookList[bookListCounter].name;
-				section +="</dt><dd>";
-				//author
-				section +=bookList[bookListCounter].author;;
-				section +="</dd></dl></div>	<div class = \"contents book_description price\">";
-				//price
-				section +=bookList[bookListCounter].price;
-				section +="</div>	</div>	</div>	</li>";
+			for(var j = 0 ; j < wholeBookListSet[booklist_selector].listName.length / Ssection_title.length -1 ; j++){
+				var sectionInnerTemplate = "<li>	<div class = \"contents book_wrapper\">	<div class=\"contents book_img\"><a href=\" <%=bookListSrc%> \">	<div class=\"outer\"><div class=\"inner\"><img src=\" <%=bookListImgsrc%> \">	</div></div></a>	</div>	<div class=\"contents book_description\"><div class = \"contents book_description title_author\"><div class = \"shadow\"></div>	<dl><dt> <%=bookListName%> </dt><dd> <%=bookListAuthor%> </dd></dl></div>	<div class = \"contents book_description price\"> <%=bookListPrice%> </div>	</div>	</div>	</li>"
+				sectionInnerTemplate = sectionInnerTemplate.replace("<%=bookListSrc%>",bookList[bookListCounter].src);
+				sectionInnerTemplate =sectionInnerTemplate.replace("<%=bookListName%>",bookList[bookListCounter].name);
+				sectionInnerTemplate =sectionInnerTemplate.replace("<%=bookListImgsrc%>",bookList[bookListCounter].imgsrc);
+				sectionInnerTemplate =sectionInnerTemplate.replace("<%=bookListAuthor%>",bookList[bookListCounter].author);
+				sectionInnerTemplate = sectionInnerTemplate.replace("<%=bookListPrice%>",bookList[bookListCounter].price);
+				sectionTemplate+=sectionInnerTemplate;
 				bookListCounter++;
 			}
 
-		section += "</section></li>";
-		sectionInProgress += section;
-
+		sectionTemplate += "</section></li>";
+		sectionInProgress += sectionTemplate;
 	}
 	
 
 	wrapper += sectionInProgress;
 	wrapper += "</ul>";
-
+	booklist_selector = (booklist_selector+1)%4;
 	return wrapper;
 }
 
 
+
+function getLiNumber(ev){
+	var liNumber;
+	var parent = ev.target.parentElement
+	for(var i = 0 ; i < parent.children.length ; i ++){
+		if(parent.children[i].innerText === ev.target.innerText){
+			if(i >= 14)
+				liNumber = Math.floor(Math.random()*10);
+			else
+				liNumber = i;
+
+			break;
+		}
+	}
+
+	return liNumber;
+}
