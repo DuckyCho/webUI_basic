@@ -66,7 +66,7 @@ function swipe(userTouchMove, ev){
 
 	
 	velocity = -25 * direction;
-	acceleration = 0.85 * direction;
+	acceleration = 0.95 * direction;
 
 	//userTouchMove 가 0보다 작으면 스와이프 롸이트, 오브젝트는 오른쪽으로 움직여야함
 	//속도는 양수가 되어야 하고, 가속도는 음수가 되어야한다.
@@ -78,9 +78,13 @@ function swipe(userTouchMove, ev){
 	//direction, userTouchMove, 가속도 양수 , 속도 음수
 	
 	
+	//스와이프를 양방향으로 두번빠르게 하면 이상해지는 버그 수정을 위해
+	//인터벌이 시작전 이벤트리스너를 제거하고 인터벌이 끝나면 다시 이벤트리스너 등
+	swipingEventRemover();
+	
 	swipeInterval = setInterval( function(){
 		move(direction,Ulele,UleleStartPosX,UleleEndPosX);
-	},1);
+	},0.01);
 	
 }
 
@@ -97,6 +101,7 @@ function move(direction, Ulele, UleleStartPosX, UleleEndPosX){
 			Ulele.style.left = -UleleEndPosX + "px";
 			bookListBlur(Ulele);
 			clearInterval(swipeInterval);
+			swipingEventRegister();
 		}
 
 	}
@@ -109,6 +114,7 @@ function move(direction, Ulele, UleleStartPosX, UleleEndPosX){
 			Ulele.style.left = -UleleStartPosX + "px";
 			bookListBlur(Ulele);
 			clearInterval(swipeInterval);
+			swipingEventRegister()
 		}
 
 	}
@@ -123,11 +129,15 @@ function move(direction, Ulele, UleleStartPosX, UleleEndPosX){
 
 
 function findULele(ele){
-	var Ulele
+	var Ulele;
+	
 	if(ele.tagName === "UL")
 		return ele
 	else
 		return Ulele = findULele(ele.parentElement);
+
+
+	
 }
 
 
