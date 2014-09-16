@@ -1,6 +1,6 @@
 // innerHtmlSet()함수를 실행시키면 index.html에서도 booklist.js에서 북 리스트를 읽어와 로딩함
 // 주석처리하면 원래 설정되어 있는 html로 로딩
-innerHtmlSet();
+// innerHtmlSet();
 var genreBookSet = document.querySelector("#genre_set");
 genreBookSet.addEventListener('click',bookListAppear,false);
 
