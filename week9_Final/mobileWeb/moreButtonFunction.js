@@ -17,7 +17,7 @@ function bookListShowHide(ev){
 	//접기 버튼을 눌렀을 때(책 목록 접을 때)
 	if( lineUpWrapper.style.height === ""){
 		ev.target.innerText = ("더보기");
-		lineUpWrapper.style.height = getBookHeight() + "px";
+		bookListHeightSet(getBookHeight())
 		swipingEventRegister();
 	}
 	//더보기 버튼을 눌렀을 때(책 목록 더 볼때)

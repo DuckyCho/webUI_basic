@@ -10,6 +10,7 @@ function swipingEventRegister(){
 
 }
 
+
 function touchStartPosRegister(ev){
 	touchStartPosX = ev.changedTouches[0].clientX;	
 }
@@ -27,7 +28,9 @@ function touchEndPosRegister(ev){
 			ulEle.style.left = 0+"px"; 
 		}
 		
+		swipingEventRemover();
 		swipe(userTouchMove,ev);
+
 		
 	}
 			
@@ -58,6 +61,7 @@ function swipe(userTouchMove, ev){
 			ulEle.style.left = ulEle.offsetLeft + velocity + "px";
 			if(removePx(ulEle.style.left) === startValue) {
 				clearInterval(swipeMove);
+				swipingEventRegister();
 			}
 			velocity += accelaration;
 		},0.25);
@@ -69,6 +73,7 @@ function swipe(userTouchMove, ev){
 			currentTime++;
 			if(ulEle.offsetLeft === startValue+changeInValue){
 				clearInterval(swipeMove);
+				swipingEventRegister();
 			}
 		},0.25);	
 	}
