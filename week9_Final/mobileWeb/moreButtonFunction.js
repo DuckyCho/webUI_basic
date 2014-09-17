@@ -1,5 +1,3 @@
-moreButtonEventRegister();
-
 
 function moreButtonEventRegister(){
 	var eleMoreButtons = document.querySelectorAll(".moreButton");
@@ -15,20 +13,20 @@ function moreButtonEventImplement(eleMoreButtons){
 
 function bookListShowHide(ev){
 	var lineUpWrapper = ev.target.parentElement.parentElement.querySelector("ul").parentElement;
-	lineUpWrapper.querySelector("ul").removeAttribute("style");
-
-	if( lineUpWrapper.style.overflow === ""){
-		lineUpWrapper.removeAttribute("style");
-		lineUpWrapper.style.overflow = "visible";
-		swipingEventRemover();
-		removeBookListBlur(lineUpWrapper.firstElementChild);
-		
-	}
-	else{
-		lineUpWrapper.removeAttribute("style");
-		lineUpWrapper.firstElementChild.style.paddingLeft = lineUpWrapper.firstElementChild.firstElementChild.style.marginRight;
+	var ulEle = lineUpWrapper.querySelector("ul");
+	//접기 버튼을 눌렀을 때(책 목록 접을 때)
+	if( lineUpWrapper.style.height === ""){
+		ev.target.innerText = ("더보기");
+		lineUpWrapper.style.height = getBookHeight() + "px";
 		swipingEventRegister();
-		bookListHeightSet();
+	}
+	//더보기 버튼을 눌렀을 때(책 목록 더 볼때)
+	else{
+		ev.target.innerText = ("접 기");
+		ulEle.removeAttribute('style');
+		lineUpWrapper.removeAttribute('style');
+		bookListMarginSet(getBookMargin());
+		swipingEventRemover();
 	}
 	
 }

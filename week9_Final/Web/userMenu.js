@@ -1,3 +1,4 @@
+//사용자메뉴 버튼 클릭 했을때, 이벤트리스너
 function userMenuEventRegister(){
 	var userMenuEle = document.querySelector(".user.menu");
 
@@ -9,6 +10,7 @@ function userMenuEventRegister(){
 
 }
 
+//사용자 메뉴 버튼 클릭 했을 때, json파일을 읽어서 메뉴를 구성하여 innerHtml로 삽입
 function userMenuLoader(isAsync,callBackFunction){
 	
 	var url = "./json/userMenu.json";
@@ -37,7 +39,7 @@ function userMenuLoader(isAsync,callBackFunction){
 
 }
 
-
+//사용자의 클릭에 따라, 상황에 따라 사용자메뉴를 보여주고 가리는 함수
 function userMenuShowHide(userMenuSet){
 	var userMenuEle = document.querySelector("#userMenu_outer");
 
@@ -95,27 +97,7 @@ function userMenuAnimation(userMenuEle, opacity_pram, right_pram , changeInValue
 	},0.25)
 }
 
-
-function userMenuAppearAnimation(userMenuEle){
-	userMenuEle.style.opacity = 0.0;
-	userMenuEle.style.right = 0+"em";
-
-	var currentTime = 0;
-	var startValue = 0;
-	var changeInValue_pos = -10;
-	var changeInValue_opa = 1.000;
-	var duration = 100;
-
-	var userMenuAppearInterval = setInterval(function(){
-		userMenuEle.style.right = easeInOutQuint(currentTime,startValue,changeInValue_pos,duration) + "em";
-		userMenuEle.style.opacity = easeInOutQuint(currentTime,startValue,changeInValue_opa,duration);
-		currentTime++;
-		if(userMenuEle.style.right === changeInValue_pos + startValue + "em"){
-			clearInterval(userMenuAppearInterval);
-		}
-	},0.25)
-}
-
+//json파일을 읽어들여서 userMenu div에 html세팅
 function userMenuInnerHtmlSet(userMenuSet){
 	var ul_template = "<div id = \"userMenu_outer\"><div id = \"userMenu_inner\"><ul><%liTemplate%></ul></div></div>"
 	var li_template = "<li><dt><img src = \"<%dt%>\"></dt><dd><%dd%></dd></li>"
@@ -133,10 +115,12 @@ function userMenuInnerHtmlSet(userMenuSet){
 
 }
 
-
+//사용자 메뉴 드래그 엔 드롭 이벤트 핸들러
 function userMenuDragEventRegister(userMenuEle){
 	
-
+	//드래그 시작시 선택된 메뉴의 id를 selected로 변경
+	//드래그할때의 이미지 li element로 변경
+	//드래그할때 이미지 투명도 설정하는 방법은 없나요?
 	userMenuEle.addEventListener('dragstart',function(ev){
 		var liEle = findLiele(ev.target);
 		liEle.id = "selected";	
@@ -144,6 +128,8 @@ function userMenuDragEventRegister(userMenuEle){
 		event.dataTransfer.setDragImage(liEle, 50,50);
 	},false);
 
+	//다른 메뉴위에 드롭하려고 할때 (다른 메뉴위로 드래그 상태로 마우스가 침범할경우)
+	//li순서를 innerHTML을 이용하여 바꾼다.
 	userMenuEle.addEventListener('dragover',function(ev){
 		event.preventDefault();
 		var targetEle = findLiele(ev.target);
@@ -153,6 +139,7 @@ function userMenuDragEventRegister(userMenuEle){
 		}
 	},false);
 
+	//drop했을 때, 다시 li id삭제
 	userMenuEle.addEventListener('drop',function(ev){
 		document.querySelector("#selected").removeAttribute('id');
 	},false);
@@ -160,6 +147,7 @@ function userMenuDragEventRegister(userMenuEle){
 }
 
 
+//상황에 따라 li의 위치를 재배열하는 함수
 function rearrangeLiEle(ulEle,targetEle){
 	var ulEleInnerHtml = ulEle.innerHTML;
 	var targetEleOuterHtml = targetEle.outerHTML;
@@ -176,7 +164,7 @@ function rearrangeLiEle(ulEle,targetEle){
 
 }
 
-
+//드래그 된 오브젝트의 상위클래스에서 li element를 찾아내는 함수
 function findLiele(ele){
 	
 	if(ele === null){

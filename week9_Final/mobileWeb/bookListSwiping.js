@@ -1,17 +1,5 @@
 swipingEventRegister();
 
-var touchStartPosX;
-var touchEndPosX;
-
-function swipingEventRemover(){
-	var sections = document.querySelectorAll(".lineUp_wrapper");
-	
-		for(var i = 0 ; i < sections.length ; i++){
-				sections[i].removeEventListener('touchstart',touchStartPosRegister);
-				sections[i].removeEventListener('touchend',touchEndPosRegister);
-		}
-}
-
 function swipingEventRegister(){
 	var sections = document.querySelectorAll(".lineUp_wrapper");
 	
@@ -23,8 +11,7 @@ function swipingEventRegister(){
 }
 
 function touchStartPosRegister(ev){
-	touchStartPosX = ev.changedTouches[0].clientX;
-	
+	touchStartPosX = ev.changedTouches[0].clientX;	
 }
 
 function touchEndPosRegister(ev){
@@ -35,9 +22,9 @@ function touchEndPosRegister(ev){
 	if(Math.abs(userTouchMove) > 100){
 		var ulEle = findULele(ev.target);
 		if(ulEle.style.left === ""){
-			ulEle.style.width = ulEle.childElementCount * (ulEle.children[0].clientWidth+removePx(ulEle.children[0].style.marginRight)) + 5 + "px";
+			ulEle.style.width = Math.floor(ulEle.children.length * getBookWidth() + (ulEle.children.length+1) * getBookMargin()) + "px";
 			ulEle.style.position = "absolute"; 
-			ulEle.style.left = removePx(ulEle.firstElementChild.style.marginRight)+"px"; 
+			ulEle.style.left = 0+"px"; 
 		}
 		
 		swipe(userTouchMove,ev);
@@ -48,85 +35,44 @@ function touchEndPosRegister(ev){
 
 
 function swipe(userTouchMove, ev){
+	var ulEle = findULele(ev.target);
+	var currentTime = 1;
+	var startValue = removePx(ulEle.style.left);
 	
-	
-	var Ulele = findULele(ev.target);
-	var currentOnWindowFirstLiEle =  getFistLiEleOnWindow( removePx(Ulele.style.left) , Ulele);
+	var duration = 50;
+	var firstEleInWindow = getFistLiEleOnWindow(ulEle.offsetLeft, ulEle)
+	var changeInValue = ulEle.children[2].offsetLeft - ulEle.children[0].offsetLeft;
 
-	//startPos는 현재 화면의 첫번재 li의 offsetLeft이다.
-	var UleleStartPosX = getStartPosX(Ulele,currentOnWindowFirstLiEle);
-
-	//endPos는 다음 넘어갈 화면의 맨 마지막 li의 전 li의 offsetLeft이다.
-	var UleleEndPosX = getEndPosX(Ulele,currentOnWindowFirstLiEle);
-
-	//direction이 양수이면 왼쪽으로 이동 (스와이프 left) = 속도 음수
-	//direction이 음수이면 오른쪽으로 이동 (스와이프 right) = 속도 양수
-	var direction = Math.abs(userTouchMove)/userTouchMove;
-	
-
-	
-	velocity = -25 * direction;
-	acceleration = 0.95 * direction;
-
-	//userTouchMove 가 0보다 작으면 스와이프 롸이트, 오브젝트는 오른쪽으로 움직여야함
-	//속도는 양수가 되어야 하고, 가속도는 음수가 되어야한다.
-	//direction, userTouchMove, 가속도 음수 , 속도 양수
-	
-
-	//userTouchMove 가 0보다 크면 스와이프 레프트, 오브젝트는 왼쪽으로 움직여야함
-	//속도는 음수가 되어야 하고, 가속도는 양수가 되어야 한다.
-	//direction, userTouchMove, 가속도 양수 , 속도 음수
-	
-	
-	//스와이프를 양방향으로 두번빠르게 하면 이상해지는 버그 수정을 위해
-	//인터벌이 시작전 이벤트리스너를 제거하고 인터벌이 끝나면 다시 이벤트리스너 등
-	swipingEventRemover();
-	
-	swipeInterval = setInterval( function(){
-		move(direction,Ulele,UleleStartPosX,UleleEndPosX);
-	},0.01);
-	
-}
+	if(userTouchMove > 0)
+		changeInValue *= -1;
 
 
-function move(direction, Ulele, UleleStartPosX, UleleEndPosX){
-	//direction이 양수이면 왼쪽으로 이동 (스와이프 left) = 속도 음수
-	//direction이 음수이면 오른쪽으로 이동 (스와이프 right) = 속도 양수
-
-	if(direction > 0 && UleleEndPosX < Math.abs(removePx(Ulele.style.left)) ){
-		tmpPosX = UleleEndPosX;
-		Ulele.style.left = removePx(Ulele.style.left)+velocity+"px" ;
+	if( (startValue >= 0 && userTouchMove < 0) ||
+	 (ulEle.lastElementChild.previousElementSibling === firstEleInWindow && userTouchMove>0) ||
+	 (ulEle.lastElementChild === firstEleInWindow && userTouchMove>0) ){
 		
-		if(tmpPosX > Math.abs(removePx(Ulele.style.left)) ){
-			Ulele.style.left = -UleleEndPosX + "px";
-			bookListBlur(Ulele);
-			clearInterval(swipeInterval);
-			swipingEventRegister();
-		}
+		var velocity = -12 * (userTouchMove / Math.abs(userTouchMove));
+		var accelaration = 1 * (userTouchMove / Math.abs(userTouchMove));
 
+		var swipeMove = setInterval(function(eve){
+			ulEle.style.left = ulEle.offsetLeft + velocity + "px";
+			if(removePx(ulEle.style.left) === startValue) {
+				clearInterval(swipeMove);
+			}
+			velocity += accelaration;
+		},0.25);
 	}
-
-	else if(direction < 0 &&  UleleStartPosX > -removePx(Ulele.style.left) ){
-		tmpPosX = UleleStartPosX;
-		Ulele.style.left = removePx(Ulele.style.left)+velocity+"px" ;
-
-		if( tmpPosX > Math.abs(removePx(Ulele.style.left)) ){
-			Ulele.style.left = -UleleStartPosX + "px";
-			bookListBlur(Ulele);
-			clearInterval(swipeInterval);
-			swipingEventRegister()
-		}
-
-	}
-
 	else{
-		Ulele.style.left = removePx(Ulele.style.left)+velocity+"px" ;
-		tmpPosX = removePx(Ulele.style.left);
+		var swipeMove = setInterval(function(eve){
+			
+			ulEle.style.left = Math.floor(easeOutQuad(currentTime,startValue,changeInValue,duration)) + "px";
+			currentTime++;
+			if(ulEle.offsetLeft === startValue+changeInValue){
+				clearInterval(swipeMove);
+			}
+		},0.25);	
 	}
-	velocity += acceleration;
 }
-
-
 
 function findULele(ele){
 	var Ulele;
@@ -141,12 +87,6 @@ function findULele(ele){
 }
 
 
-function removePx(ele){
-	return ele.replace("px","") *1;
-}
-
-
-
 function getFistLiEleOnWindow(currentLeftPos, UlEle){
 	for(var i = 0 ; i < UlEle.children.length ; i++){
 		if( Math.abs(currentLeftPos) <= UlEle.children[i].offsetLeft){
@@ -155,50 +95,18 @@ function getFistLiEleOnWindow(currentLeftPos, UlEle){
 	}
 }
 
-
-
-function getStartPosX(Ulele,currentOnWindowFirstLiEle){
-	 	if(currentOnWindowFirstLiEle === Ulele.firstElementChild){
-	 		Ulele.style.left = removePx(Ulele.firstElementChild.style.marginRight) + "px";
-	 		return removePx(Ulele.firstElementChild.style.marginRight);
-	 	}
-	 	else{
-	 		return currentOnWindowFirstLiEle.previousElementSibling.previousElementSibling.offsetLeft;
-	 	}
-}
-
-function getEndPosX(Ulele,currentOnWindowFirstLiEle){
-	 	if(currentOnWindowFirstLiEle === Ulele.lastElementChild.previousElementSibling){
-	 		return currentOnWindowFirstLiEle.offsetLeft;
-	 	}
-	 	else{
-	 		return currentOnWindowFirstLiEle.nextElementSibling.nextElementSibling.offsetLeft;
-	 	}
+function removePx(ele){
+	var result = ele.replace("px","");
+	return result *1;
 }
 
 
 
-function bookListBlur(ulEle){
-	var currentOnWindowFirstLiEle =  getFistLiEleOnWindow( removePx(ulEle.style.left) , ulEle);
-
-	if(currentOnWindowFirstLiEle === ulEle.lastElementChild.previousElementSibling)
-		removeBookListBlur(ulEle);
-	else
-		setBookListBlur(ulEle);
-}
-
-function setBookListBlur(ulEle){
-	ulEle.nextElementSibling.setAttribute("style","float:right");
-	ulEle.nextElementSibling.style.width = "20%";
-	ulEle.nextElementSibling.style.height = "100%";
-	ulEle.nextElementSibling.style.position = "absolute";
-	ulEle.nextElementSibling.style.right = "0";
+function swipingEventRemover(){
+	var sections = document.querySelectorAll(".lineUp_wrapper");
 	
-	ulEle.nextElementSibling.style.backgroundImage = "-webkit-linear-gradient(left,rgba(229,229,229,0),rgba(229,229,229,1))";
+		for(var i = 0 ; i < sections.length ; i++){
+				sections[i].removeEventListener('touchstart',touchStartPosRegister);
+				sections[i].removeEventListener('touchend',touchEndPosRegister);
+		}
 }
-
-function removeBookListBlur(ulEle){
-	ulEle.nextElementSibling.removeAttribute("style");
-}
-
-

@@ -521,6 +521,30 @@ nav {
 	margin :  40px 0px 0px 254px;
 }
 
+#loading{
+	position: absolute;
+	background: rgba(200,200,200,0.0);
+	z-index : 1001;
+}
+#loadingComment{
+	position: absolute;
+	display: inline-block;
+	text-align: center;
+	font : 1.5em 'gillsans-light';
+	letter-spacing: 0.4em;
+	color : rgb(239,64,137);
+	
+	
+}
+
+.loadingCircle{
+	position: absolute;
+	background: rgb(26,161,225);
+	border-radius: 4em;
+	width : 1em;
+	height: 1em;
+}
+
 section {
 	overflow: hidden;
 	padding: 20px 0 20px 0;

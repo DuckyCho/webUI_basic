@@ -1,3 +1,4 @@
+//더보기 버튼을 눌렀을때, 더보기 버튼 이벤트리스너
 function moreButtonEventListener(bookList){
 	moreButtons = document.querySelectorAll(".section.title.more_button");
 
@@ -9,7 +10,7 @@ function moreButtonEventListener(bookList){
 }
 
 
-
+//상황에 따라서 책목록을 더 보여주거나 숨기거나 하는 함수
 function bookListShowHide(ev, bookList){
 	
 	var currentPage = currentPageGenre();
@@ -19,9 +20,12 @@ function bookListShowHide(ev, bookList){
 	if(ulEle.style.overflow === "" || ulEle.style.overflow === "hidden"){
 		bookListLoad(bookList,contentsEle);
 		bookListShow(contentsEle,ulEle);
+		ev.target.innerText = "접 기";
 	}
-	else
+	else{
 		bookListHide(contentsEle,ulEle);
+		ev.target.innerText = "더보기";
+	}
 
 }
 

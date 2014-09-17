@@ -1,8 +1,7 @@
-window.onscroll = scroll;
-var nav =  document.querySelector("nav");
-		var aside =  document.querySelector("aside");
-
+//스크롤을 내렸을때, 상단 nav bar 위치 고정
 function scroll(){
+	var nav =  document.querySelector("nav");
+	var aside =  document.querySelector("aside");
 	var currentScroll = window.scrollY;
 
 	if(currentScroll > 63){

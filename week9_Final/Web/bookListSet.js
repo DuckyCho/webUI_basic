@@ -1,3 +1,7 @@
+//화면에 책들을 보여주는 함수들
+
+
+//bookListSet : ajax통신으로 받은 json파일에 책들의 정보를 genre값에 따라 화면에 뿌려주는 함수
 function bookListSet(bookList, genre, bookListNum){
 	
 	var contents = document.querySelectorAll(".contents");
@@ -20,6 +24,10 @@ function bookListSet(bookList, genre, bookListNum){
 }
 
 
+//section tag에 html을 템플릿에 따라 바꾸는 함수
+//책 리스트들을 바꾼다.
+//bookListNum인자를 받아서 json에서 몇개의 책을 불러올지를 결정한다.
+//첫화면을 로드할때는 책을 9개만 받아서 화면에 띄움 
 function bookListInnerHTMLset(bookList, bookListKey, bookListNum){
 	
 	var section_title_template = "<li><section><div class = \"section title\"><div class=\"section title description\"><h1><%h1%></h1><h3><%h3%></h3></div><div class = \"section title more_button\"><button>더보기</button></div></div><div class=\"section background_img\"></div><div class = \"contents\"><ul><%contentsTemplate%></ul></div></section></li>";
@@ -57,7 +65,7 @@ function bookListInnerHTMLset(bookList, bookListKey, bookListNum){
 
 }
 
-
+//더보기 버튼을 눌렀을 때, json파일을 추가로 읽어들여서 책목록을 완성
 function bookListLoad(bookList, contentsEle){
 
 	var genre = currentPageGenre();
