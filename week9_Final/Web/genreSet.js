@@ -5,8 +5,8 @@ function bookGenreListSet(bookList){
 	var eleGenreSet	= document.querySelector("#genre_set");
 	var genreSetTemplate = "<li><%bookGenre%></li>";
 	
-
-	for(var i = 1; i < bookObjKey.length ; i++){
+    var bookObjKeyLength = bookObjKey.length;
+	for(var i = 1; i < bookObjKeyLength ; i++){
 		var key = bookObjKey[i];
 		var liTemplate = eval("bookList."+key+"[0].title");
 		

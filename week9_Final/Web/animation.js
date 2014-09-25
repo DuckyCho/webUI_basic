@@ -1,8 +1,8 @@
 //시간에 따른 위치를 값을 리턴하여 애니메이션을 구현하는 로직들
 //http://gizma.com/easing/ 참고하였습니다.
 
-function easeInOutQuint (currentTime, startValue, changeInValue, duration){
-	currentTime /= duration/2;
+function easeInOutQuint(currentTime, startValue, changeInValue, duration) {
+	currentTime /= duration/ 2;
 
 	
 	if(currentTime < 1)

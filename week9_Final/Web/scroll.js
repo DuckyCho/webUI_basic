@@ -5,8 +5,6 @@ function scroll(){
 	var currentScroll = window.scrollY;
 
 	if(currentScroll > 63){
-		
-
 		nav.style.position = "fixed";
 		nav.style.top = "0";
 		nav.style.zIndex = "999";

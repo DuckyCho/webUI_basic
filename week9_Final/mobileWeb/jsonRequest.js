@@ -1,5 +1,7 @@
-jsonRequest();
 
+//json request하여 ajax통신을 하는 부분
+//bookList를 로딩하여 intialize 함수에 인자로 넣어줌
+//bookList로딩이 완료되면 intialize함수를 실행
 function jsonRequest(){
 	var url = "./json/book.json";
 	var mobileRequest = new XMLHttpRequest();
@@ -11,17 +13,15 @@ function jsonRequest(){
 			
 			var bookList = mobileRequest.responseText;
 			bookList = JSON.parse(bookList);
-			htmlInnerSet(bookList);
-			elementsSizeSet();
-			moreButtonEventRegister();
-			window.addEventListener('resize',windowSizeModifyEventRegister);
-			swipingEventRegister();
-
+			//초기화 함수
+            initialize(bookList);
 		}
 	}
 }
 
 
+
+//첫 화면의 책 리스트를 json파일을 이용해 innerHTML로 삽입하는 함수
 function htmlInnerSet(bookList){
 	
 
@@ -61,9 +61,8 @@ function htmlInnerSet(bookList){
 	}
 	
 
-	
-	
-
-
 }
+
+//jsonRequest를 실행
+jsonRequest();
 

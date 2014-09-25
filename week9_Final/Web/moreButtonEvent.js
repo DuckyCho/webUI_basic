@@ -1,8 +1,8 @@
 //더보기 버튼을 눌렀을때, 더보기 버튼 이벤트리스너
 function moreButtonEventListener(bookList){
-	moreButtons = document.querySelectorAll(".section.title.more_button");
-
-	for(var i = 0 ; i < moreButtons.length ; i++){
+	var moreButtons = document.querySelectorAll(".section.title.more_button");
+    var moreButtonsLength = moreButtons.length;
+	for(var i = 0 ; i < moreButtonsLength ; i++){
 		moreButtons[i].addEventListener('click',function(ev){
 			bookListShowHide(ev, bookList);
 		},false);
@@ -29,7 +29,9 @@ function bookListShowHide(ev, bookList){
 
 }
 
-
+//책 목록을 보여주는 함수
+//더보기를 누르면 책div를 감싸고 있는 ul의 overflow속성을 visible로 바꾸고
+//ul의 상위 div인 contents div의 height값을 조절하여 애니메이션 구현
 function bookListShow(contentsEle, ulEle){
 	ulEle.style.overflow = "visible";
 	var currentTime = 0;
@@ -44,6 +46,7 @@ function bookListShow(contentsEle, ulEle){
 	},0.1);
 }
 
+//접기를 누르면 책div를 덮고있는 ul의 overflow속성을 hidden으로 바꾼다.
 function bookListHide(contentsEle, ulEle){
 	ulEle.style.overflow = "hidden";
 	contentsEle.removeAttribute('style');

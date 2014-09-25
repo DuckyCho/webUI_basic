@@ -45,8 +45,8 @@ function bookListInnerHTMLset(bookList, bookListKey, bookListNum){
 		tmp_section_title_template += section_title_template;
 		tmp_section_title_template = tmp_section_title_template.replace("<%h1%>",bookListCommand[i].h1);
 		tmp_section_title_template = tmp_section_title_template.replace("<%h3%>",bookListCommand[i].h3);
-		
-		for(var j = 0 ;  j < (hawManyBooks = bookListNum < 0 ? bookListCommand[i].bookList.length : bookListNum) ; j++ ){
+		var howManyBooks = bookListNum < 0 ? bookListCommand[i].bookList.length : bookListNum;
+		for(var j = 0 ;  j < howManyBooks ; j++ ){
 			tmp_contents_template += contents_template;
 			tmp_contents_template = tmp_contents_template.replace("<%name%>",bookListCommand[i].bookList[j].name);
 			tmp_contents_template = tmp_contents_template.replace("<%author%>",bookListCommand[i].bookList[j].author);
@@ -97,7 +97,8 @@ function bookListLoad(bookList, contentsEle){
 
 	for(var j = 0 ; j < bookListCommand.length ; j++){
 		if(bookListCommand[j].h1.trim() === sectionTitleEle.innerText.trim() && ulEle.children.length != bookListCommand[j].bookList.length ){
-			for(var q = 9 ; q < bookListCommand[j].bookList.length ; q++){
+			var bookListCommandBookListLength = bookListCommand[j].bookList.length;
+            for(var q = 9 ; q < bookListCommandBookListLength ; q++){
 				tmp_contents_template += contents_template;
 				tmp_contents_template = tmp_contents_template.replace("<%name%>" ,bookListCommand[j].bookList[q].name);
 				tmp_contents_template = tmp_contents_template.replace("<%src%>" ,bookListCommand[j].bookList[q].src);

@@ -94,7 +94,7 @@ function userMenuAnimation(userMenuEle, opacity_pram, right_pram , changeInValue
 			clearInterval(userMenuAppearInterval);
 			endFunction();
 		}
-	},0.25)
+	},0.25);
 }
 
 //json파일을 읽어들여서 userMenu div에 html세팅
@@ -104,8 +104,8 @@ function userMenuInnerHtmlSet(userMenuSet){
 	var tmp_li_template = "";
 	
 	var userMenuEle = document.querySelector(".user.menu");
-
-	for(var i = 0 ; i < getObjLength(userMenuSet) ; i++){
+    var objLength = getObjLength(userMenuSet);
+	for(var i = 0 ; i < objLength ; i++){
 		tmp_li_template += li_template.replace("<%dt%>",eval("userMenuSet["+i.toString()+"]").dt);
 		tmp_li_template = tmp_li_template.replace("<%dd%>",eval("userMenuSet["+i.toString()+"]").dd);
 	}

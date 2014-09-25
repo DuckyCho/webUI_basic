@@ -1,3 +1,4 @@
+//더보기 버튼을 눌렀을때 이벤트 핸들러
 
 function moreButtonEventRegister(){
 	var eleMoreButtons = document.querySelectorAll(".moreButton");
@@ -5,7 +6,8 @@ function moreButtonEventRegister(){
 }
 
 function moreButtonEventImplement(eleMoreButtons){
-	for ( var i = 0 ; i < eleMoreButtons.length ; i++){
+	var eleMoreButtonsLength = eleMoreButtons.length;
+    for ( var i = 0 ; i < eleMoreButtonsLength ; i++){
 		eleMoreButtons[i].addEventListener('click',bookListShowHide)
 	}
 }
@@ -25,7 +27,7 @@ function bookListShowHide(ev){
 		ev.target.innerText = ("접 기");
 		ulEle.removeAttribute('style');
 		lineUpWrapper.removeAttribute('style');
-		bookListMarginSet(getBookMargin());
+        bookListMarginSet(getBookMargin());
 		swipingEventRemover();
 	}
 	
